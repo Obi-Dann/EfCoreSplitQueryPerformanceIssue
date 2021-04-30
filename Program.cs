@@ -14,6 +14,7 @@ namespace EfCoreSplitQueryPerformanceIssue
 {
     class Program
     {
+        public const string ConnectionString = @"Data Source=InMemorySample;Mode=Memory;Cache=Shared";
         public static bool loggingEnabled;
 
         static void Main(string[] args)
@@ -46,6 +47,11 @@ namespace EfCoreSplitQueryPerformanceIssue
                 ParticipantName = "Participant 2",
                 CreatedBy = user
             };
+            var participant3 = new Participant
+            {
+                ParticipantName = "Participant 3",
+                CreatedBy = user
+            };
 
             db.Add(new Event
             {
@@ -53,7 +59,8 @@ namespace EfCoreSplitQueryPerformanceIssue
                 Participants = new List<Participant>
                 {
                     participant1,
-                    participant2
+                    participant2,
+                    participant3
                 }
             });
             db.SaveChanges();
@@ -85,7 +92,7 @@ namespace EfCoreSplitQueryPerformanceIssue
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options
-                .UseSqlite(@"Data Source=InMemorySample;Mode=Memory;Cache=Shared")
+                .UseSqlite(Program.ConnectionString)
                 .EnableSensitiveDataLogging();
     }
 
@@ -168,7 +175,7 @@ namespace EfCoreSplitQueryPerformanceIssue
                 // Custom console logger to also output query results into console to be able to highlight the issue better
                 var payload = (CommandExecutedEventData) value.Value;
 
-                using var connection = new SqliteConnection(@"Data Source=InMemorySample;Mode=Memory;Cache=Shared");
+                using var connection = new SqliteConnection(Program.ConnectionString);
                 connection.Open();
                 using var command = connection.CreateCommand();
                 command.CommandText = payload.Command.CommandText;
