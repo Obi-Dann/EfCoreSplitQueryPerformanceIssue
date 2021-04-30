@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.6.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfCoreSplitQueryPerformanceIssue", "EfCoreSplitQueryPerformanceIssue.csproj", "{8C5D3794-A6B5-451F-8CF3-758CBF3A6658}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		EfCore2|Any CPU = EfCore2|Any CPU
+		EfCore5|Any CPU = EfCore5|Any CPU
+		EfCore6|Any CPU = EfCore6|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C5D3794-A6B5-451F-8CF3-758CBF3A6658}.EfCore2|Any CPU.ActiveCfg = EfCore2|Any CPU
+		{8C5D3794-A6B5-451F-8CF3-758CBF3A6658}.EfCore5|Any CPU.ActiveCfg = EfCore5|Any CPU
+		{8C5D3794-A6B5-451F-8CF3-758CBF3A6658}.EfCore6|Any CPU.ActiveCfg = EfCore6|Any CPU
+	EndGlobalSection
+EndGlobal
